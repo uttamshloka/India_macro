@@ -1,0 +1,435 @@
+{
+ "generated": "2026-10-26T06:33:27+00:00",
+ "as_of": {
+  "verified_to": "2026-06-30",
+  "provisional_to": "2026-09-30"
+ },
+ "position": "The economy is growing above its own recent average with modest capacity tightness. The expansion is led by investment and the production chain rather than by the consumer. Corporate balance sheets are strong by any recent standard. Two things qualify that: inflation has risen for nine consecutive months on every measure we compute, and net corporate profitability is being held up by an unusually low interest burden at the moment policy has begun to tighten.",
+ "tiles": [
+  {
+   "label": "Real GDP growth",
+   "value": 7.82,
+   "unit": "%",
+   "period": "Apr-Jun 2026",
+   "source": "live"
+  },
+  {
+   "label": "Real GVA growth",
+   "value": 8.23,
+   "unit": "%",
+   "period": "Apr-Jun 2026",
+   "source": "snapshot"
+  },
+  {
+   "label": "CPI inflation",
+   "value": 5.54,
+   "unit": "%",
+   "period": "Sep 2026",
+   "source": "live"
+  },
+  {
+   "label": "Inflation, typical division",
+   "value": 5.01,
+   "unit": "%",
+   "period": "Sep 2026",
+   "source": "live"
+  },
+  {
+   "label": "Inflation excluding food",
+   "value": 4.48,
+   "unit": "%",
+   "period": "Sep 2026",
+   "source": "live"
+  },
+  {
+   "label": "Repo rate",
+   "value": 5.5,
+   "unit": "%",
+   "period": "raised 9 Oct 2026",
+   "source": "snapshot"
+  }
+ ],
+ "components": {
+  "period": "Apr-Jun 2026",
+  "source": "live",
+  "cols": [
+   "Component",
+   "YoY %"
+  ],
+  "rows": [
+   [
+    "PFCE (Private Final Consumption Expenditure)",
+    7.14
+   ],
+   [
+    "GFCE (Government Final Consumption Expenditure)",
+    4.33
+   ],
+   [
+    "GFCF (Gross Fixed Capital Formation)",
+    11.95
+   ],
+   [
+    "Change in Stock",
+    -13.86
+   ],
+   [
+    "Valuables",
+    -18.57
+   ],
+   [
+    "Exports",
+    12.05
+   ],
+   [
+    "Imports",
+    -1.1
+   ]
+  ],
+  "note": "Component contributions to the headline are not reported for this quarter: the statistical residual is 29.1% of the attributed total, the largest in the series. Each component's own growth rate is published and valid."
+ },
+ "industry": {
+  "period": "Apr-Jun 2026",
+  "source": "live",
+  "cols": [
+   "Part",
+   "Weight",
+   "YoY %",
+   "pp of growth"
+  ],
+  "rows": [
+   [
+    "Primary Goods",
+    31.14,
+    2.97,
+    null
+   ],
+   [
+    "Capital Goods",
+    8.08,
+    15.25,
+    null
+   ],
+   [
+    "Intermediate Goods",
+    22.42,
+    9.21,
+    null
+   ],
+   [
+    "Infrastructure/ Construction Goods",
+    10.91,
+    7.18,
+    null
+   ],
+   [
+    "Consumer Durables",
+    11.31,
+    7.97,
+    null
+   ],
+   [
+    "Consumer Non-Durables",
+    16.15,
+    1.77,
+    null
+   ]
+  ],
+  "note": "Capital goods and intermediates supply 53% of industrial growth on 30% of the weight. Everyday consumer goods supply 4% on 16%."
+ },
+ "slack": {
+  "source": "live",
+  "cols": [
+   "Measure",
+   "Latest",
+   "Trailing 20q median",
+   "Gap",
+   "z"
+  ],
+  "rows": [
+   [
+    "CAPACITY UTILISATION, seasonally adjusted",
+    76.3,
+    74.65,
+    1.65,
+    0.8
+   ],
+   [
+    "INVENTORY-TO-SALES RATIO",
+    66.12,
+    65.63,
+    0.49,
+    0.07
+   ],
+   [
+    "NEW ORDER BOOK, year-on-year growth",
+    -2.56,
+    5.7,
+    -8.26,
+    -0.54
+   ]
+  ],
+  "note": "The z-score excludes the current reading from its own benchmark. Inventories are normal; the order book cannot be read because the survey panel grew from 385 to 432 companies while the aggregate rose 9.3%."
+ },
+ "corporate": {
+  "period": "Dec 2025",
+  "source": "snapshot",
+  "cols": [
+   "Measure",
+   "Latest",
+   "Trailing 20q median",
+   "z"
+  ],
+  "rows": [
+   [
+    "EBITDA margin",
+    18.47,
+    19.09,
+    -0.6
+   ],
+   [
+    "Operating margin",
+    15.75,
+    16.01,
+    -0.41
+   ],
+   [
+    "Net margin",
+    9.37,
+    9.27,
+    0.13
+   ],
+   [
+    "Interest coverage",
+    6.09,
+    5.4,
+    1.57
+   ],
+   [
+    "Interest burden",
+    16.41,
+    18.51,
+    -1.41
+   ],
+   [
+    "Cash coverage",
+    7.77,
+    6.8,
+    1.77
+   ]
+  ],
+  "note": "Operating profitability is below its recent normal while net profitability is at normal. The difference is debt service, and the interest burden sits 1.41 standard deviations below normal. Net margins are held up by cheap debt rather than by operating performance, at the moment policy has turned."
+ },
+ "inflation": {
+  "source": "live",
+  "cols": [
+   "Month",
+   "Headline",
+   "Excluding food",
+   "Typical division"
+  ],
+  "rows": [
+   [
+    "2026-01",
+    2.73,
+    3.09,
+    2.12
+   ],
+   [
+    "2026-02",
+    3.21,
+    3.12,
+    2.81
+   ],
+   [
+    "2026-03",
+    3.4,
+    3.23,
+    2.88
+   ],
+   [
+    "2026-04",
+    3.48,
+    3.19,
+    3.15
+   ],
+   [
+    "2026-05",
+    3.94,
+    3.59,
+    3.0
+   ],
+   [
+    "2026-06",
+    4.38,
+    3.99,
+    4.31
+   ],
+   [
+    "2026-07",
+    4.45,
+    3.99,
+    4.45
+   ],
+   [
+    "2026-08",
+    4.82,
+    4.32,
+    4.61
+   ],
+   [
+    "2026-09",
+    5.54,
+    4.48,
+    5.01
+   ]
+  ],
+  "note": "India publishes no core inflation series; every core figure in circulation is derived by whoever quotes it. We report two constructions from MoSPI's published indices and weights and state both, so agreement or divergence is visible. All three measures have risen for nine consecutive months, so this is not a food story. House rent carries 28% of the non-food basket at 2.74%, which holds the excluding-food measure down."
+ },
+ "inflation_sources": {
+  "source": "snapshot",
+  "period": "Sep 2026",
+  "cols": [
+   "Division",
+   "Weight",
+   "Inflation %",
+   "pp of headline"
+  ],
+  "rows": [
+   [
+    "Food and beverages",
+    36.75,
+    7.36,
+    2.715
+   ],
+   [
+    "Personal care, social protection, misc",
+    5.04,
+    13.75,
+    0.736
+   ],
+   [
+    "Housing, water, electricity, gas, fuels",
+    17.67,
+    2.74,
+    0.474
+   ],
+   [
+    "Transport",
+    8.8,
+    5.01,
+    0.429
+   ],
+   [
+    "Restaurants and accommodation",
+    3.35,
+    9.36,
+    0.317
+   ],
+   [
+    "Clothing and footwear",
+    6.38,
+    3.93,
+    0.255
+   ],
+   [
+    "Paan, tobacco and intoxicants",
+    2.99,
+    4.8,
+    0.143
+   ],
+   [
+    "Furnishings, household equipment",
+    4.47,
+    3.11,
+    0.138
+   ],
+   [
+    "Education services",
+    3.33,
+    3.94,
+    0.133
+   ],
+   [
+    "Information and communication",
+    3.61,
+    2.44,
+    0.088
+   ],
+   [
+    "Health",
+    6.1,
+    1.4,
+    0.085
+   ],
+   [
+    "Recreation, sport and culture",
+    1.52,
+    2.16,
+    0.033
+   ]
+  ],
+  "note": "Food and personal care together supply 62% of all inflation from 42% of the basket. Personal care delivers 2.6 times its weight."
+ },
+ "checks": {
+  "source": "snapshot",
+  "cols": [
+   "Check",
+   "First measurement",
+   "Second measurement",
+   "Result"
+  ],
+  "rows": [
+   [
+    "Investment is real capital spending",
+    "GFCF +11.95%",
+    "Capital goods output +15.25%",
+    "AGREE"
+   ],
+   [
+    "Consumption reaches mass-market households",
+    "PFCE +7.14%",
+    "Everyday goods output +1.77%",
+    "BREAK"
+   ],
+   [
+    "Manufacturing value added matches output",
+    "GVA +9.17%",
+    "Production index +6.92%",
+    "AGREE"
+   ],
+   [
+    "The mining contraction is real",
+    "GVA -2.44%",
+    "Extraction volume -1.23%",
+    "AGREE"
+   ],
+   [
+    "The economy is above normal capacity",
+    "GDP +0.35pp above mean",
+    "Utilisation +1.65pp above median",
+    "AGREE"
+   ],
+   [
+    "Demand is still strengthening",
+    "GDP +7.82%",
+    "Order book",
+    "CONFOUNDED"
+   ],
+   [
+    "Nominal activity matches company sales",
+    "Nominal GDP +8.72%",
+    "Listed company sales +10.11%",
+    "AGREE"
+   ]
+  ],
+  "note": "Each check sets two measurements of the same thing against each other, taken by different institutions using different methods. A BREAK is the output, not a failure. Consumption is the one that carries the sector call: total household spending grows 7.14% while the goods mass-market households buy grow 1.77%."
+ },
+ "sectors": [
+  "Overweight capital goods and intermediates - chemicals, metals, components, industrial machinery.",
+  "Within industrials prefer equipment makers to cement and construction aggregates: capital goods output has accelerated four quarters running while construction materials decelerated.",
+  "Underweight consumer staples. Everyday goods output is growing under 2% while total consumption grows 7%.",
+  "Mining is the only contracting sector, confirmed by two independent measures.",
+  "The equity index earns no place in the macro call: GDP's deviation from its own mean correlates with the Nifty at 0.45 over 54 quarters."
+ ]
+}
