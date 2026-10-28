@@ -4,7 +4,7 @@
   "verified_to": "2026-06-30",
   "provisional_to": "2026-09-30"
  },
- "position": "The economy is growing above its own recent average with modest capacity tightness. The expansion is led by investment and the production chain rather than by the consumer. Corporate balance sheets are strong by any recent standard. Two things qualify that: inflation has risen for nine consecutive months on every measure we compute, and net corporate profitability is being held up by an unusually low interest burden at the moment policy has begun to tighten.",
+ "position": "The economy is growing above its own recent average with modest capacity tightness, and the expansion is led by investment and the production chain rather than by the consumer. Inflation has risen for nine consecutive months on every measure computed here and policy has turned tighter. Net corporate profitability is being held up by an unusually low interest burden at the moment that support is being withdrawn. Meanwhile the market has fallen while the economy grew \u2014 a valuation event rather than an activity event \u2014 which is why so many sectors screen cheap against their own history at once.",
  "tiles": [
   {
    "label": "Real GDP growth",
@@ -372,7 +372,7 @@
   "note": "Food and personal care together supply 62% of all inflation from 42% of the basket. Personal care delivers 2.6 times its weight."
  },
  "checks": {
-  "source": "snapshot",
+  "source": "live",
   "cols": [
    "Check",
    "First measurement",
@@ -382,55 +382,65 @@
   "rows": [
    [
     "Investment is real capital spending",
-    "GFCF +11.95%",
-    "Capital goods output +15.25%",
+    "GFCF, national accounts",
+    "Capital goods output",
     "AGREE"
    ],
    [
     "Consumption reaches mass-market households",
-    "PFCE +7.14%",
-    "Everyday goods output +1.77%",
+    "Household spending, national accounts",
+    "Everyday goods output",
     "BREAK"
    ],
    [
     "Manufacturing value added matches output",
-    "GVA +9.17%",
-    "Production index +6.92%",
+    "Manufacturing value added",
+    "Physical production index",
     "AGREE"
    ],
    [
     "The mining contraction is real",
-    "GVA -2.44%",
-    "Extraction volume -1.23%",
+    "Mining value added",
+    "Physical extraction volume",
     "AGREE"
    ],
    [
     "The economy is above normal capacity",
-    "GDP +0.35pp above mean",
-    "Utilisation +1.65pp above median",
+    "GDP against its own mean",
+    "Capacity utilisation survey",
     "AGREE"
    ],
    [
     "Demand is still strengthening",
-    "GDP +7.82%",
-    "Order book",
+    "GDP, latest quarter",
+    "Order book survey",
     "CONFOUNDED"
    ],
    [
+    "The import fall is a volume fall, not a price effect",
+    "Real imports",
+    "Nominal imports",
+    "SKIPPED"
+   ],
+   [
     "Nominal activity matches company sales",
-    "Nominal GDP +8.72%",
-    "Listed company sales +10.11%",
+    "Nominal GDP",
+    "Listed company net sales",
     "AGREE"
    ]
   ],
-  "note": "Each check sets two measurements of the same thing against each other, taken by different institutions using different methods. A BREAK is the output, not a failure. Consumption is the one that carries the sector call: total household spending grows 7.14% while the goods mass-market households buy grow 1.77%."
+  "note": "Each check sets two separate measurements of the same thing against each other, taken by different institutions using different methods. A disagreement is reported, not averaged away. Consumption carries the sector call: total household spending grows far faster than output of the goods mass-market households buy."
  },
  "sectors": [
-  "Overweight capital goods and intermediates - chemicals, metals, components, industrial machinery.",
-  "Within industrials prefer equipment makers to cement and construction aggregates: capital goods output has accelerated four quarters running while construction materials decelerated.",
-  "Underweight consumer staples. Everyday goods output is growing under 2% while total consumption grows 7%.",
-  "Mining is the only contracting sector, confirmed by two independent measures.",
-  "The equity index earns no place in the macro call: GDP's deviation from its own mean correlates with the Nifty at 0.45 over 54 quarters."
+  "Capital goods and equipment, via Industrials \u2014 OVERWEIGHT. Cheap on earnings but expensive on book, so return on capital is historically high. this is an earnings-persistence call, not a valuation call. Twelve-month return +0.66% (+12.99 points against the benchmark), PE percentile 21, PB percentile 88. Basis: capital goods output +15.25%, four straight accelerations.",
+  "Capital goods and equipment, via CPSE \u2014 HOLD. No clear valuation signal either way. Twelve-month return -9.13% (+3.20 points against the benchmark), PE percentile 46, PB percentile 51. Basis: capital goods output +15.25%, four straight accelerations.",
+  "Intermediates, via Commodities \u2014 OVERWEIGHT. Cheap on earnings but expensive on book, so return on capital is historically high. this is an earnings-persistence call, not a valuation call. Twelve-month return -2.50% (+9.83 points against the benchmark), PE percentile 33, PB percentile 81. Basis: intermediate goods the largest contributor to industrial growth.",
+  "Financials, via Bankex \u2014 OVERWEIGHT. Cheap against both earnings and book while already outperforming \u2014 the least crowded configuration available. Twelve-month return -6.68% (+5.65 points against the benchmark), PE percentile 0, PB percentile 6. Basis: financial, real estate and IT value added +12.11%, the largest single contribution to GVA.",
+  "Financials, via Financials \u2014 OVERWEIGHT. Cheap on earnings but expensive on book, so return on capital is historically high. this is an earnings-persistence call, not a valuation call. Twelve-month return -11.25% (+1.08 points against the benchmark), PE percentile 0, PB percentile 72. Basis: financial, real estate and IT value added +12.11%, the largest single contribution to GVA.",
+  "Consumer discretionary, via Auto \u2014 OVERWEIGHT. Cheap on earnings but expensive on book, so return on capital is historically high. this is an earnings-persistence call, not a valuation call. Twelve-month return -7.31% (+5.02 points against the benchmark), PE percentile 2, PB percentile 79. Basis: durables output +7.97% against everyday goods +1.77%.",
+  "Consumer discretionary, via ConsDiscr \u2014 NO ADD. Paid for on both measures \u2014 already in the price. Twelve-month return -8.18% (+4.15 points against the benchmark), PE percentile 71, PB percentile 73. Basis: durables output +7.97% against everyday goods +1.77%.",
+  "Utilities and power, via Utilities \u2014 HOLD. No clear valuation signal either way. Twelve-month return -7.94% (+4.40 points against the benchmark), PE percentile 65, PB percentile 56. Basis: electricity and gas output +8.79%.",
+  "Utilities and power, via Power \u2014 NO ADD. Paid for on both measures \u2014 already in the price. Twelve-month return -0.56% (+11.77 points against the benchmark), PE percentile 66, PB percentile 79. Basis: electricity and gas output +8.79%."
  ],
  "narrative": {
   "growth": [
@@ -511,8 +521,8 @@
   ],
   "confidence": [
    {
-    "verdict": "4/7",
-    "text": "Of 7 independent cross-checks \u2014 each setting two separate measurements of the same thing against each other \u2014 **4 agree**, **1 disagree**, **1 cannot be read** and **1 could not be run**. A disagreement is reported, not averaged away: where two methods differ, the difference is the finding."
+    "verdict": "5/8",
+    "text": "Of 8 independent cross-checks \u2014 each setting two separate measurements of the same thing against each other \u2014 **5 agree**, **1 disagree**, **1 cannot be read** and **1 could not be run**. A disagreement is reported, not averaged away: where two methods differ, the difference is the finding."
    }
   ],
   "reconciliation": [
@@ -690,10 +700,10 @@
   "note": "Every figure is a count of non-null observations that entered the analysis, not an estimate. Each family carries its own as-at date because official releases arrive on different calendars."
  },
  "stamp": {
-  "reference": "IM-20261028-1720-31AB",
-  "generated_ist": "28 October 2026, 17:20 IST",
-  "generated_utc": "2026-10-28T11:50Z",
-  "content_hash": "31abea1c65",
+  "reference": "IM-20261028-1815-8CA1",
+  "generated_ist": "28 October 2026, 18:15 IST",
+  "generated_utc": "2026-10-28T12:45Z",
+  "content_hash": "8ca18a1100",
   "observations": 765726,
   "families": 12,
   "asof": {
@@ -711,5 +721,483 @@
    "Capacity and order books": "Q1 2026-27"
   },
   "note": "The reference identifies this exact report. The content hash is computed from the figures themselves, so two copies with the same hash contain the same numbers."
+ },
+ "market_table": {
+  "source": "live",
+  "cols": [
+   "Index",
+   "3 month %",
+   "6 month %",
+   "12 month %",
+   "vs benchmark, pp",
+   "PE",
+   "PE percentile",
+   "PB percentile"
+  ],
+  "rows": [
+   [
+    "Bankex",
+    -6.31,
+    -3.92,
+    -6.68,
+    5.65,
+    12.18,
+    0.08,
+    5.87
+   ],
+   [
+    "Financials",
+    -7.5,
+    -6.11,
+    -11.25,
+    1.08,
+    14.66,
+    0.08,
+    71.67
+   ],
+   [
+    "Healthcare",
+    -5.81,
+    -4.69,
+    -9.82,
+    2.51,
+    19.72,
+    0.24,
+    71.83
+   ],
+   [
+    "Auto",
+    -5.89,
+    -2.88,
+    -7.31,
+    5.02,
+    22.17,
+    2.46,
+    79.44
+   ],
+   [
+    "Teck",
+    7.04,
+    10.6,
+    -6.35,
+    5.98,
+    21.04,
+    8.25,
+    75.24
+   ],
+   [
+    "Realty",
+    -10.81,
+    4.22,
+    -13.46,
+    -1.12,
+    37.96,
+    9.6,
+    51.59
+   ],
+   [
+    "Industrials",
+    -6.19,
+    -5.15,
+    0.66,
+    12.99,
+    34.32,
+    20.87,
+    88.33
+   ],
+   [
+    "Commodities",
+    -9.35,
+    -7.9,
+    -2.5,
+    9.83,
+    18.92,
+    32.62,
+    80.95
+   ],
+   [
+    "CPSE",
+    -9.8,
+    -15.92,
+    -9.13,
+    3.2,
+    12.32,
+    46.35,
+    50.95
+   ],
+   [
+    "Energy",
+    -5.35,
+    -7.91,
+    -8.27,
+    4.06,
+    11.91,
+    50.0,
+    35.87
+   ],
+   [
+    "Infra",
+    -11.25,
+    -15.37,
+    -13.07,
+    -0.74,
+    16.03,
+    62.7,
+    50.08
+   ],
+   [
+    "Utilities",
+    -13.78,
+    -18.41,
+    -7.94,
+    4.4,
+    22.18,
+    65.4,
+    56.11
+   ],
+   [
+    "Power",
+    -12.28,
+    -15.56,
+    -0.56,
+    11.77,
+    27.98,
+    66.43,
+    79.05
+   ],
+   [
+    "ConsDiscr",
+    -6.11,
+    1.87,
+    -8.18,
+    4.15,
+    48.36,
+    70.56,
+    73.1
+   ],
+   [
+    "Telecom",
+    7.33,
+    28.06,
+    27.8,
+    40.13,
+    19.76,
+    74.84,
+    58.73
+   ]
+  ],
+  "note": "Sorted by PE percentile, cheapest against its own five-year history first. Price is common to both ratios, so reading them together separates a low price from merely elevated earnings."
+ },
+ "factor_table": {
+  "source": "live",
+  "cols": [
+   "Factor",
+   "3 month %",
+   "6 month %",
+   "12 month %",
+   "vs benchmark, pp",
+   "PE",
+   "PE percentile",
+   "PB percentile"
+  ],
+  "rows": [
+   [
+    "Value",
+    -7.47,
+    -11.47,
+    -3.05,
+    9.28,
+    8.76,
+    50.95,
+    63.17
+   ],
+   [
+    "DivStability",
+    -6.75,
+    -6.43,
+    -4.09,
+    8.25,
+    11.49,
+    29.76,
+    59.84
+   ],
+   [
+    "Quality",
+    -9.88,
+    -9.8,
+    -8.42,
+    3.92,
+    27.06,
+    67.3,
+    79.6
+   ],
+   [
+    "DivFocus",
+    -9.13,
+    -4.68,
+    -8.76,
+    3.58,
+    21.27,
+    11.98,
+    81.11
+   ],
+   [
+    "Momentum",
+    -5.63,
+    -5.13,
+    -11.92,
+    0.42,
+    23.3,
+    54.13,
+    78.81
+   ],
+   [
+    "LowVol",
+    -10.37,
+    -9.04,
+    -14.33,
+    -1.99,
+    24.41,
+    10.08,
+    14.92
+   ]
+  ],
+  "note": "Ranked by return against the benchmark. The regime model ranks these on volatility instead, which is why the two sleeves differ."
+ },
+ "reco_agreement": {
+  "source": "live",
+  "cols": [
+   "Sector",
+   "Fundamental",
+   "Regime model (volatility)",
+   "Regime weight %",
+   "Agreement"
+  ],
+  "rows": [
+   [
+    "Auto",
+    "Overweight",
+    "Overweight",
+    8.33,
+    "Agree"
+   ],
+   [
+    "Financials",
+    "Overweight",
+    "Neutral",
+    6.67,
+    "\u2014"
+   ],
+   [
+    "Energy",
+    "Underweight",
+    "Neutral",
+    6.67,
+    "\u2014"
+   ],
+   [
+    "Industrials",
+    "Overweight",
+    "Neutral",
+    6.67,
+    "\u2014"
+   ],
+   [
+    "ConsDiscr",
+    "Do not add",
+    "Overweight",
+    8.33,
+    "Conflict"
+   ],
+   [
+    "Commodities",
+    "Overweight",
+    "Neutral",
+    6.67,
+    "\u2014"
+   ],
+   [
+    "Healthcare",
+    "No view",
+    "Overweight",
+    8.33,
+    "\u2014"
+   ],
+   [
+    "Telecom",
+    "Do not add",
+    "Underweight",
+    5.0,
+    "Agree"
+   ],
+   [
+    "Utilities",
+    "No view",
+    "Neutral",
+    6.67,
+    "\u2014"
+   ],
+   [
+    "Bankex",
+    "Overweight",
+    "Neutral",
+    6.67,
+    "\u2014"
+   ],
+   [
+    "Realty",
+    "Underweight",
+    "Underweight",
+    5.0,
+    "Agree"
+   ],
+   [
+    "Power",
+    "Do not add",
+    "Underweight",
+    5.0,
+    "Agree"
+   ],
+   [
+    "Teck",
+    "No view",
+    "Neutral",
+    6.67,
+    "\u2014"
+   ],
+   [
+    "Infra",
+    "Underweight",
+    "Neutral",
+    6.67,
+    "\u2014"
+   ],
+   [
+    "CPSE",
+    "No view",
+    "Neutral",
+    6.67,
+    "\u2014"
+   ]
+  ],
+  "note": "Regime Normal, equity exposure 100%. The regime model ranks on realised volatility, not expected return, so a conflict means low volatility has met a weak fundamental case \u2014 not that two return forecasts disagree."
+ },
+ "reco_book": {
+  "source": "live",
+  "cols": [
+   "Sector",
+   "Equal weight %",
+   "Macro tilt %",
+   "After volatility tie-break %",
+   "After regime exposure %"
+  ],
+  "rows": [
+   [
+    "Auto",
+    6.67,
+    8.9,
+    9.56,
+    9.56
+   ],
+   [
+    "Financials",
+    6.67,
+    8.9,
+    8.86,
+    8.86
+   ],
+   [
+    "Industrials",
+    6.67,
+    8.9,
+    8.86,
+    8.86
+   ],
+   [
+    "Commodities",
+    6.67,
+    8.9,
+    8.86,
+    8.86
+   ],
+   [
+    "Bankex",
+    6.67,
+    8.9,
+    8.86,
+    8.86
+   ],
+   [
+    "Healthcare",
+    6.67,
+    6.59,
+    7.08,
+    7.08
+   ],
+   [
+    "Utilities",
+    6.67,
+    6.59,
+    6.56,
+    6.56
+   ],
+   [
+    "CPSE",
+    6.67,
+    6.59,
+    6.56,
+    6.56
+   ],
+   [
+    "Teck",
+    6.67,
+    6.59,
+    6.56,
+    6.56
+   ],
+   [
+    "ConsDiscr",
+    6.67,
+    5.44,
+    5.84,
+    5.84
+   ],
+   [
+    "Power",
+    6.67,
+    5.44,
+    4.98,
+    4.98
+   ],
+   [
+    "Telecom",
+    6.67,
+    5.44,
+    4.98,
+    4.98
+   ],
+   [
+    "Energy",
+    6.67,
+    4.28,
+    4.26,
+    4.26
+   ],
+   [
+    "Infra",
+    6.67,
+    4.28,
+    4.26,
+    4.26
+   ],
+   [
+    "Realty",
+    6.67,
+    4.28,
+    3.92,
+    3.92
+   ]
+  ],
+  "note": "The macro sets direction, the regime model sets total exposure and breaks ties. If the crisis state is confirmed for five consecutive days, exposure falls to 25% and the whole book scales with it. That is a stop, not a forecast."
  }
 }

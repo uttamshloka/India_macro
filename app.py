@@ -2,27 +2,20 @@
 # India Macro — Streamlit front end
 # ---------------------------------------------------------------------------
 # Single file. Reads data.json from the same directory and renders whatever
-# it finds. Nothing is hard-coded about which blocks exist, so a new module
-# appears by adding data rather than by editing this file.
+# it finds. A page whose blocks are all absent hides itself.
 #
-# THE DATA CONTRACT  (what data.json may contain — all keys optional)
-#
-#   stamp     {reference, generated_ist, generated_utc, content_hash,
-#              observations, families, asof{family: date}, note}
-#   as_of     {verified_to, provisional_to}
-#   position  str - the headline paragraph
-#   tiles     [{label, value, unit, period, source}]      source: live|snapshot
-#   narrative {key: [{verdict, text}]}                    generated prose
-#   census    {cols, rows, note}                          table block
-#   <table>   {cols, rows, note, period?, source?}        any table block
+# THE DATA CONTRACT (all keys optional)
+#   stamp {reference, generated_ist, generated_utc, content_hash,
+#          observations, families, asof{family: date}}
+#   as_of {verified_to, provisional_to}
+#   position  str
+#   tiles     [{label, value, unit, period, source}]   source: live|snapshot
+#   narrative {key: [{verdict, text}]}
+#   <table>   {cols, rows, note, period?, source?}
 #   sectors   [str]
-#   checks    table block with a column named "Result" for colouring
+#   checks    table block with a "Result" column
 #
-# TO ADD A MODULE
-#   1. write the block into data.json from the pipeline
-#   2. add one tuple to PAGES below, e.g.
-#        ("Fiscal", [("narr", "fiscal"), ("table", "fiscal_balance", None)])
-#   Pages whose blocks are all absent are hidden automatically.
+# TO ADD A MODULE: write the block into data.json, add one tuple to PAGES.
 # ===========================================================================
 import json
 import pathlib
@@ -70,9 +63,6 @@ st.markdown(
 )
 
 
-# --------------------------------------------------------------------------
-# helpers
-# --------------------------------------------------------------------------
 def badge(src):
     if src == "live":
         return '<span class="badge ver">Verified</span>'
@@ -80,37 +70,34 @@ def badge(src):
 
 
 def frame(block):
-    """Table block -> DataFrame, numeric where possible."""
     df = pd.DataFrame(block.get("rows", []), columns=block.get("cols", []))
     for c in df.columns[1:]:
         conv = pd.to_numeric(
-            df[c].astype(str).str.replace(",", "", regex=False), errors="coerce"
-        )
+            df[c].astype(str).str.replace(",", "", regex=False),
+            errors="coerce")
         if conv.notna().mean() > 0.6:
             df[c] = conv
     return df
 
 
 def table(block, chart=None, key=""):
-    """Render a table block, with an optional toggled chart."""
     if not block or not block.get("rows"):
         return False
     df = frame(block)
     if block.get("period"):
         st.caption(block["period"])
     st.dataframe(df, hide_index=True, width="stretch")
-    if chart:
-        if st.toggle("Show chart", key=f"tg_{key}"):
-            idx = df.columns[0]
-            try:
-                if chart == "line":
-                    st.line_chart(df.set_index(idx).select_dtypes("number"))
-                elif chart in df.columns:
-                    st.bar_chart(df.set_index(idx)[chart])
-                else:
-                    st.bar_chart(df.set_index(idx).select_dtypes("number"))
-            except Exception as exc:
-                st.caption(f"chart unavailable: {exc}")
+    if chart and st.toggle("Show chart", key=f"tg_{key}"):
+        idx = df.columns[0]
+        try:
+            if chart == "line":
+                st.line_chart(df.set_index(idx).select_dtypes("number"))
+            elif chart in df.columns:
+                st.bar_chart(df.set_index(idx)[chart])
+            else:
+                st.bar_chart(df.set_index(idx).select_dtypes("number"))
+        except Exception as exc:
+            st.caption(f"chart unavailable: {exc}")
     if block.get("note"):
         st.markdown(f'<div class="note">{block["note"]}</div>',
                     unsafe_allow_html=True)
@@ -118,7 +105,6 @@ def table(block, chart=None, key=""):
 
 
 def narr(key):
-    """Render generated narrative for one topic."""
     items = NARR.get(key) or []
     for o in items:
         st.markdown(f'<div class="key">{o.get("text", "")}</div>',
@@ -161,21 +147,16 @@ def asof_table(_=None):
     m = STAMP.get("asof") or {}
     if not m:
         return False
-    st.dataframe(
-        pd.DataFrame({"Data family": list(m.keys()),
-                      "As at": list(m.values())}),
-        hide_index=True, width="stretch")
-    st.markdown(
-        '<div class="note">Official releases arrive on different '
-        'calendars, so each family carries its own as-at date. A single '
-        'report date would misrepresent most of them.</div>',
-        unsafe_allow_html=True)
+    st.dataframe(pd.DataFrame({"Data family": list(m.keys()),
+                               "As at": list(m.values())}),
+                 hide_index=True, width="stretch")
+    st.markdown('<div class="note">Official releases arrive on different '
+                'calendars, so each family carries its own as-at date. A '
+                'single report date would misrepresent most of them.</div>',
+                unsafe_allow_html=True)
     return True
 
 
-# --------------------------------------------------------------------------
-# static reference content — moves into data.json when the pipeline writes it
-# --------------------------------------------------------------------------
 STATIC = {
     "growth_vs_avg": {
         "cols": ["Measure", "Latest", "Own average",
@@ -185,13 +166,13 @@ STATIC = {
                  ["Real GDP growth, base 2011-12 (54 readings)",
                   None, 6.29, None]],
         "note": ("The current base has thirteen readings. That is a run "
-                 "rate, not a trend, and the average of thirteen quarters is "
-                 "not a measure of this economy's normal growth. The earlier "
-                 "base average of 6.29% covers 54 quarters including the "
-                 "2020 collapse, so the two measure different things and are "
-                 "never subtracted from one another. Capacity utilisation "
-                 "carries the slack judgement because it has 73 quarters "
-                 "behind it."),
+                 "rate, not a trend, and the average of thirteen quarters "
+                 "is not a measure of this economy's normal growth. The "
+                 "earlier base average of 6.29% covers 54 quarters "
+                 "including the 2020 collapse, so the two measure different "
+                 "things and are never subtracted from one another. "
+                 "Capacity utilisation carries the slack judgement because "
+                 "it has 73 quarters behind it."),
     },
     "orders_detail": {
         "cols": ["Measure", "Value"],
@@ -205,17 +186,17 @@ STATIC = {
                  ["Change in the panel", "+12.2%"]],
         "note": ("The published figure is an average per responding company "
                  "and the panel grew 12.2% over the year. A growing panel "
-                 "drags a per-company average down with no change in demand, "
-                 "which is why the per-company reading is negative while the "
-                 "aggregate is positive. Both are shown because neither "
-                 "settles it, and no conclusion in this report rests on "
-                 "them."),
+                 "drags a per-company average down with no change in "
+                 "demand, which is why the per-company reading is negative "
+                 "while the aggregate is positive. Both are shown because "
+                 "neither settles it, and no conclusion in this report "
+                 "rests on them."),
     },
     "data_kinds": {
         "cols": ["Kind of data", "Source type", "Coverage used"],
         "rows": [
             ["National accounts, quarterly", "Official statistics office",
-             "Expenditure components across current and previous base years"],
+             "Expenditure components across current and previous bases"],
             ["Gross value added, quarterly", "Official statistics office",
              "Nine production sectors"],
             ["Industrial production, monthly", "Official statistics office",
@@ -235,9 +216,9 @@ STATIC = {
             ["Professional forecaster survey", "Central bank survey",
              "Consensus growth and inflation expectations"],
         ],
-        "note": ("Every figure in this report traces to a published official "
-                 "series. Nothing is modelled or estimated unless it is "
-                 "labelled as derived at the point of use."),
+        "note": ("Every figure traces to a published official series. "
+                 "Nothing is modelled or estimated unless it is labelled as "
+                 "derived at the point of use."),
     },
     "validation": {
         "cols": ["Test", "Result"],
@@ -267,9 +248,6 @@ STATIC = {
 }
 
 
-# --------------------------------------------------------------------------
-# header
-# --------------------------------------------------------------------------
 st.title("India Macro")
 
 if STAMP:
@@ -312,15 +290,6 @@ if D.get("tiles"):
 
 st.divider()
 
-
-# --------------------------------------------------------------------------
-# pages — add a module by adding a tuple here
-#   ("narr",   key)                 generated narrative
-#   ("table",  key, chart|None)     table block from data.json
-#   ("static", key, chart|None)     table block from STATIC above
-#   ("checks", key)                 table with a coloured Result column
-#   ("fn",     callable, heading)   anything else
-# --------------------------------------------------------------------------
 PAGES = [
     ("Overview", [
         ("narr", "confidence"),
@@ -353,11 +322,17 @@ PAGES = [
     ]),
     ("Market", [
         ("narr", "market"),
+        ("table", "market_table", None),
         ("narr", "recommendations"),
+    ]),
+    ("Factors", [
         ("narr", "factors"),
+        ("table", "factor_table", None),
     ]),
     ("Reconciliation", [
         ("narr", "reconciliation"),
+        ("table", "reco_agreement", None),
+        ("table", "reco_book", "After regime exposure %"),
     ]),
     ("Cross-checks", [
         ("checks", "checks"),
@@ -384,9 +359,13 @@ HEADINGS = {
     "orders_detail": "Order books, both bases of measurement",
     "corporate": "Corporate accounts",
     "market": "The market",
+    "market_table": "Every index, return and valuation",
     "recommendations": "Recommendations",
     "factors": "Factors",
+    "factor_table": "Factor returns and valuation",
     "reconciliation": "Fundamental and quantitative, reconciled",
+    "reco_agreement": "Where the two models agree",
+    "reco_book": "The combined book",
     "components": "GDP components",
     "inflation_sources": "Where inflation comes from",
     "checks": "Cross-checks",
@@ -412,11 +391,10 @@ def has_content(items):
     return False
 
 
-LIVE = [(name, items) for name, items in PAGES if has_content(items)]
+LIVE = [(n, i) for n, i in PAGES if has_content(i)]
 
 if not LIVE:
-    st.warning("data.json contains no renderable blocks yet. Run the "
-               "pipeline's export and narrative cells, then re-upload it.")
+    st.warning("data.json contains no renderable blocks yet.")
     st.stop()
 
 for tab, (name, items) in zip(st.tabs([n for n, _ in LIVE]), LIVE):
@@ -424,36 +402,32 @@ for tab, (name, items) in zip(st.tabs([n for n, _ in LIVE]), LIVE):
         for it in items:
             kind = it[0]
             if kind == "narr":
-                key = it[1]
-                if NARR.get(key):
-                    st.subheader(HEADINGS.get(key, key.title()))
-                    narr(key)
+                if NARR.get(it[1]):
+                    st.subheader(HEADINGS.get(it[1], it[1].title()))
+                    narr(it[1])
             elif kind == "table":
-                key, chart = it[1], it[2]
-                blk = D.get(key)
+                blk = D.get(it[1])
                 if blk and blk.get("rows"):
-                    st.subheader(HEADINGS.get(key, key.title()))
+                    st.subheader(HEADINGS.get(it[1], it[1].title()))
                     if blk.get("source"):
                         st.markdown(badge(blk["source"]),
                                     unsafe_allow_html=True)
-                    table(blk, chart=chart, key=key)
+                    table(blk, chart=it[2], key=it[1])
             elif kind == "static":
-                key, chart = it[1], it[2]
-                if STATIC.get(key):
-                    st.subheader(HEADINGS.get(key, key.title()))
-                    table(STATIC[key], chart=chart, key=f"s_{key}")
+                if STATIC.get(it[1]):
+                    st.subheader(HEADINGS.get(it[1], it[1].title()))
+                    table(STATIC[it[1]], chart=it[2], key=f"s_{it[1]}")
             elif kind == "checks":
                 blk = D.get(it[1])
                 if blk and blk.get("rows"):
                     st.subheader(HEADINGS.get(it[1], "Cross-checks"))
                     checks_table(blk)
             elif kind == "fn":
-                fn, heading = it[1], it[2]
-                if heading:
-                    st.subheader(heading)
+                if it[2]:
+                    st.subheader(it[2])
                 elif name == "Sector view":
                     st.subheader("Sector view")
-                fn()
+                it[1]()
 
 st.divider()
 foot = ["Figures marked Provisional carry data pending source release "
