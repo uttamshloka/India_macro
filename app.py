@@ -11,12 +11,12 @@
 #              observations, families, asof{family: date}, note}
 #   as_of     {verified_to, provisional_to}
 #   position  str - the headline paragraph
-#   tiles     [{label, value, unit, period, source}]        source: live|snapshot
-#   narrative {key: [{verdict, text}]}                      generated prose
-#   census    {cols, rows, note}                            table block
-#   <table>   {cols, rows, note, period?, source?}          any table block
+#   tiles     [{label, value, unit, period, source}]      source: live|snapshot
+#   narrative {key: [{verdict, text}]}                    generated prose
+#   census    {cols, rows, note}                          table block
+#   <table>   {cols, rows, note, period?, source?}        any table block
 #   sectors   [str]
-#   checks    table block, with a column named "Result" for colouring
+#   checks    table block with a column named "Result" for colouring
 #
 # TO ADD A MODULE
 #   1. write the block into data.json from the pipeline
@@ -98,14 +98,13 @@ def table(block, chart=None, key=""):
     df = frame(block)
     if block.get("period"):
         st.caption(block["period"])
-    st.dataframe(df, hide_index=True, use_container_width=True)
+    st.dataframe(df, hide_index=True, width="stretch")
     if chart:
         if st.toggle("Show chart", key=f"tg_{key}"):
             idx = df.columns[0]
             try:
                 if chart == "line":
-                    num = df.set_index(idx).select_dtypes("number")
-                    st.line_chart(num)
+                    st.line_chart(df.set_index(idx).select_dtypes("number"))
                 elif chart in df.columns:
                     st.bar_chart(df.set_index(idx)[chart])
                 else:
@@ -142,9 +141,9 @@ def checks_table(block):
                 return "background-color:#fff4e0"
             return ""
         st.dataframe(df.style.map(colour, subset=["Result"]),
-                     hide_index=True, use_container_width=True)
+                     hide_index=True, width="stretch")
     else:
-        st.dataframe(df, hide_index=True, use_container_width=True)
+        st.dataframe(df, hide_index=True, width="stretch")
     if block.get("note"):
         st.markdown(f'<div class="note">{block["note"]}</div>',
                     unsafe_allow_html=True)
@@ -165,7 +164,7 @@ def asof_table(_=None):
     st.dataframe(
         pd.DataFrame({"Data family": list(m.keys()),
                       "As at": list(m.values())}),
-        hide_index=True, use_container_width=True)
+        hide_index=True, width="stretch")
     st.markdown(
         '<div class="note">Official releases arrive on different '
         'calendars, so each family carries its own as-at date. A single '
@@ -178,6 +177,40 @@ def asof_table(_=None):
 # static reference content — moves into data.json when the pipeline writes it
 # --------------------------------------------------------------------------
 STATIC = {
+    "growth_vs_avg": {
+        "cols": ["Measure", "Latest", "Own average",
+                 "Distance from average"],
+        "rows": [["Real GDP growth, base 2022-23 (13 readings)",
+                  7.82, 7.47, 0.35],
+                 ["Real GDP growth, base 2011-12 (54 readings)",
+                  None, 6.29, None]],
+        "note": ("The current base has thirteen readings. That is a run "
+                 "rate, not a trend, and the average of thirteen quarters is "
+                 "not a measure of this economy's normal growth. The earlier "
+                 "base average of 6.29% covers 54 quarters including the "
+                 "2020 collapse, so the two measure different things and are "
+                 "never subtracted from one another. Capacity utilisation "
+                 "carries the slack judgement because it has 73 quarters "
+                 "behind it."),
+    },
+    "orders_detail": {
+        "cols": ["Measure", "Value"],
+        "rows": [["Latest, average per responding company, year on year",
+                  "-2.56%"],
+                 ["Trailing 20-quarter median, same basis", "+5.70%"],
+                 ["Full-sample mean, same basis", "+11.33%"],
+                 ["Derived aggregate, year on year", "+9.33%"],
+                 ["Responding companies, four quarters ago", "385"],
+                 ["Responding companies, latest", "432"],
+                 ["Change in the panel", "+12.2%"]],
+        "note": ("The published figure is an average per responding company "
+                 "and the panel grew 12.2% over the year. A growing panel "
+                 "drags a per-company average down with no change in demand, "
+                 "which is why the per-company reading is negative while the "
+                 "aggregate is positive. Both are shown because neither "
+                 "settles it, and no conclusion in this report rests on "
+                 "them."),
+    },
     "data_kinds": {
         "cols": ["Kind of data", "Source type", "Coverage used"],
         "rows": [
@@ -311,6 +344,8 @@ PAGES = [
     ("Slack", [
         ("narr", "slack"),
         ("table", "slack", None),
+        ("static", "growth_vs_avg", None),
+        ("static", "orders_detail", None),
     ]),
     ("Corporate", [
         ("narr", "corporate"),
@@ -345,6 +380,8 @@ HEADINGS = {
     "growth": "Growth and the gap",
     "industry": "Industrial production",
     "slack": "Slack",
+    "growth_vs_avg": "Growth against its own average",
+    "orders_detail": "Order books, both bases of measurement",
     "corporate": "Corporate accounts",
     "market": "The market",
     "recommendations": "Recommendations",
