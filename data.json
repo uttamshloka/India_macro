@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T06:33:27+00:00",
+ "generated": "2026-10-28T11:11:54+00:00",
  "as_of": {
   "verified_to": "2026-06-30",
   "provisional_to": "2026-09-30"
@@ -138,7 +138,7 @@
   "note": "Capital goods and intermediates supply 53% of industrial growth on 30% of the weight. Everyday consumer goods supply 4% on 16%."
  },
  "slack": {
-  "source": "live",
+  "source": "snapshot",
   "cols": [
    "Measure",
    "Latest",
@@ -148,21 +148,21 @@
   ],
   "rows": [
    [
-    "CAPACITY UTILISATION, seasonally adjusted",
+    "Capacity utilisation, SA",
     76.3,
     74.65,
     1.65,
     0.8
    ],
    [
-    "INVENTORY-TO-SALES RATIO",
+    "Inventory-to-sales",
     66.12,
     65.63,
     0.49,
     0.07
    ],
    [
-    "NEW ORDER BOOK, year-on-year growth",
+    "New orders, YoY per company",
     -2.56,
     5.7,
     -8.26,
@@ -431,5 +431,285 @@
   "Underweight consumer staples. Everyday goods output is growing under 2% while total consumption grows 7%.",
   "Mining is the only contracting sector, confirmed by two independent measures.",
   "The equity index earns no place in the macro call: GDP's deviation from its own mean correlates with the Nifty at 0.45 over 54 quarters."
- ]
+ ],
+ "narrative": {
+  "growth": [
+   {
+    "verdict": "ABOVE",
+    "text": "Real GDP grew **7.82%** in the latest quarter, **+0.35 percentage points above** its own 13-quarter average of 7.47%. With only 13 readings on this base that average is a run rate, not a measure of normal growth."
+   }
+  ],
+  "industry": [
+   {
+    "verdict": "INVESTMENT AND THE PRODUCTION CHAIN",
+    "text": "Industrial growth is led by **investment and the production chain**. Capital goods and intermediates carry 30% of the index and supply **53%** of its growth; consumer categories carry 27% and supply **19%**. The largest single contributor is **Intermediate Goods** at +9.21%. Intermediate goods are the inputs firms buy before they produce, so this is a forward-looking signal pointing up."
+   },
+   {
+    "verdict": "NARROW",
+    "text": "Consumption is **narrow**. Durable goods output grew +7.97% against +1.77% for everyday goods \u2014 a gap of **6.20 points**. Spending is concentrated in higher-income households, or in services the production index does not measure. Either reading points allocation away from consumer staples."
+   }
+  ],
+  "inflation": [
+   {
+    "verdict": "BROAD-BASED",
+    "text": "Headline inflation is **5.54%**, having risen in **every one of the last 8 months**. Excluding food it is 4.48%, and the typical division of the basket is at 5.01%. Across the series the excluding-food measure has moved +1.39 points and the typical division +2.89 points, which makes this **broad-based**. Were this a food shock, the excluding-food measure would be flat."
+   }
+  ],
+  "policy": [
+   {
+    "verdict": "TIGHTENING",
+    "text": "The policy rate was moved to **5.50%** on 9 October 2026. With headline inflation at 5.54% against a 4.0% target midpoint, and rising on every measure, the direction of policy is **tightening**, not neutral."
+   }
+  ],
+  "corporate": [
+   {
+    "verdict": "DEBT-SERVICE PROP",
+    "text": "Operating profitability sits **below** its recent normal at -0.41 standard deviations, while net profitability sits **at** normal at +0.13. The difference between them is debt service, and the interest burden is **-1.41 standard deviations below** normal. **Net margins are held up by unusually cheap debt rather than by operating performance** \u2014 and policy is tightening into exactly that support. Interest coverage at 6.09 against a median of 5.40, with 1 of 50 industry groups unable to cover interest, makes this a margin question and not a solvency one."
+   }
+  ],
+  "slack": [
+   {
+    "verdict": "MODESTLY TIGHT",
+    "text": "Capacity utilisation is **76.30%** against a trailing median of 74.65% \u2014 a gap of +1.65 points and **+0.80 standard deviations** against the preceding window. That is **modestly tight**, not an extreme."
+   },
+   {
+    "verdict": "NORMAL",
+    "text": "Inventories relative to sales are **normal** \u2014 66.12% against a trailing median of 65.63%, +0.07 standard deviations. Any reading of an inventory build-up here would be an artefact of measuring against a long-run average rather than a recent one."
+   },
+   {
+    "verdict": "UNRESOLVED",
+    "text": "The order book cannot be read. The published figure is an average per responding company and the survey panel grew **12.2%**, from 385 to 432 firms. The per-company average is **-2.56%** while the derived aggregate is **+9.33%**. A growing panel drags a per-company average down with no change in demand, so the two cannot be separated and **no conclusion rests on this series**."
+   }
+  ],
+  "market": [
+   {
+    "verdict": "DE-RATING",
+    "text": "**The market has fallen while the economy grew.** The benchmark returned **-12.33%** over twelve months to 2026-10-27 against real GDP growth of 7.82%. A decline of that size alongside growth of that size is a **valuation event, not an activity event** \u2014 prices fell against earnings that did not. That is the context for every valuation reading below, and it is why so many sectors screen cheap against their own history at the same time."
+   },
+   {
+    "verdict": "QUADRANTS",
+    "text": "Price is common to both ratios, so reading them together separates two different kinds of cheap. Across 21 indices: **2** are cheap against earnings **and** book (Bankex, LowVol) \u2014 price is simply low. **7** are cheap on earnings while expensive on book (Financials, Healthcare, Auto, Teck, DivFocus, Industrials and 1 others) \u2014 return on book is historically high, so the cheapness rests on **elevated earnings** rather than a low price, and it lasts only as long as those earnings do. **3** are paid for on both (Power, Quality, ConsDiscr). Only **Bankex** combine cheapness on both measures with outperformance."
+   }
+  ],
+  "recommendations": [
+   {
+    "verdict": "GRADED",
+    "text": "- **Capital goods and equipment, via Industrials \u2014 OVERWEIGHT.** Cheap on earnings but expensive on book, so return on capital is historically high. this is an earnings-persistence call, not a valuation call. Twelve-month return +0.66% (+12.99 points against the benchmark), PE percentile 21, PB percentile 88. Basis: capital goods output +15.25%, four straight accelerations.\n- **Capital goods and equipment, via CPSE \u2014 HOLD.** No clear valuation signal either way. Twelve-month return -9.13% (+3.20 points against the benchmark), PE percentile 46, PB percentile 51. Basis: capital goods output +15.25%, four straight accelerations.\n- **Intermediates, via Commodities \u2014 OVERWEIGHT.** Cheap on earnings but expensive on book, so return on capital is historically high. this is an earnings-persistence call, not a valuation call. Twelve-month return -2.50% (+9.83 points against the benchmark), PE percentile 33, PB percentile 81. Basis: intermediate goods the largest contributor to industrial growth.\n- **Financials, via Bankex \u2014 OVERWEIGHT.** Cheap against both earnings and book while already outperforming \u2014 the least crowded configuration available. Twelve-month return -6.68% (+5.65 points against the benchmark), PE percentile 0, PB percentile 6. Basis: financial, real estate and IT value added +12.11%, the largest single contribution to GVA.\n- **Financials, via Financials \u2014 OVERWEIGHT.** Cheap on earnings but expensive on book, so return on capital is historically high. this is an earnings-persistence call, not a valuation call. Twelve-month return -11.25% (+1.08 points against the benchmark), PE percentile 0, PB percentile 72. Basis: financial, real estate and IT value added +12.11%, the largest single contribution to GVA.\n- **Consumer discretionary, via Auto \u2014 OVERWEIGHT.** Cheap on earnings but expensive on book, so return on capital is historically high. this is an earnings-persistence call, not a valuation call. Twelve-month return -7.31% (+5.02 points against the benchmark), PE percentile 2, PB percentile 79. Basis: durables output +7.97% against everyday goods +1.77%.\n- **Consumer discretionary, via ConsDiscr \u2014 NO ADD.** Paid for on both measures \u2014 already in the price. Twelve-month return -8.18% (+4.15 points against the benchmark), PE percentile 71, PB percentile 73. Basis: durables output +7.97% against everyday goods +1.77%.\n- **Utilities and power, via Utilities \u2014 HOLD.** No clear valuation signal either way. Twelve-month return -7.94% (+4.40 points against the benchmark), PE percentile 65, PB percentile 56. Basis: electricity and gas output +8.79%.\n- **Utilities and power, via Power \u2014 NO ADD.** Paid for on both measures \u2014 already in the price. Twelve-month return -0.56% (+11.77 points against the benchmark), PE percentile 66, PB percentile 79. Basis: electricity and gas output +8.79%.\n\nNot assessable this run because the index is stale or absent: Consumer staples (FMCG)."
+   }
+  ],
+  "factors": [
+   {
+    "verdict": "RANKED",
+    "text": "Factor returns against the benchmark:\n- **Value**: -3.05% over twelve months (+9.28 against the benchmark), PE 8.76, PE percentile 51\n- **DivStability**: -4.09% over twelve months (+8.25 against the benchmark), PE 11.49, PE percentile 30\n- **Quality**: -8.42% over twelve months (+3.92 against the benchmark), PE 27.06, PE percentile 67\n- **DivFocus**: -8.76% over twelve months (+3.58 against the benchmark), PE 21.27, PE percentile 12\n- **Momentum**: -11.92% over twelve months (+0.42 against the benchmark), PE 23.30, PE percentile 54\n- **LowVol**: -14.33% over twelve months (-1.99 against the benchmark), PE 24.41, PE percentile 10\n\n**DivStability** is the best combination in the set \u2014 it has outperformed by +8.25 points and still sits at the 30th percentile of its own valuation history. With policy tightening into companies whose net margins lean on cheap debt service, the firms able to pay dividends are the firms that do not need the debt.\n\n**LowVol** is cheap at the 10th percentile and has underperformed by -1.99 points. Cheap and not working needs a catalyst that cannot be named from this data."
+   }
+  ],
+  "coverage": [
+   {
+    "verdict": "PARTIAL",
+    "text": "This analysis runs on the data available at the time of generation. market indices excluded as stale: BSE100, BSE200, BSE500, FMCG, IT, MidCap, SmallCap; figures using a stored value rather than a live one: cu, inv, ord. Figures drawn from a stored value remain correct as published but do not reflect releases since."
+   }
+  ],
+  "confidence": [
+   {
+    "verdict": "4/7",
+    "text": "Of 7 independent cross-checks \u2014 each setting two separate measurements of the same thing against each other \u2014 **4 agree**, **1 disagree**, **1 cannot be read** and **1 could not be run**. A disagreement is reported, not averaged away: where two methods differ, the difference is the finding."
+   }
+  ],
+  "reconciliation": [
+   {
+    "verdict": "DIVISION OF LABOUR",
+    "text": "**The two are not competing forecasts and are not averaged.** The regime model ranks sectors on realised volatility, because its own validation found volatility ranking stable across folds while return ranking was not. It therefore sets **total exposure** and breaks ties. The fundamental engine ranks on macro direction and valuation against each sector's own history, and sets **direction**. Where they differ, it means low volatility has met a weak fundamental case \u2014 not that two return forecasts disagree."
+   },
+   {
+    "verdict": "4 AGREE, 1 CONFLICT",
+    "text": "Across 15 sectors the two models take a position on the same name **5** times. They **agree 4** times \u2014 Auto, Telecom, Realty, Power and **conflict 1** time \u2014 ConsDiscr. On the remaining 10 only one model has a view, so there is nothing to reconcile. The conflict resolves to **neutral**: a sector can be calm and still be expensive, and low volatility is not a reason to pay a high multiple. Where a theme has a cheaper expression, the exposure goes there instead."
+   },
+   {
+    "verdict": "EXPOSURE 100%",
+    "text": "Total equity exposure is **100%**, set by the regime model rather than by the macro view. If the crisis state is confirmed for five consecutive days, exposure falls to 25% and the whole book scales with it. **That is a stop, not a forecast** \u2014 and the honest caveat travels with it: the crisis overlay rests on a single episode, so its drawdown protection is one observation rather than a repeated result."
+   },
+   {
+    "verdict": "FACTORS - USE THE FUNDAMENTAL RANK",
+    "text": "The factor sleeve is where the volatility ranking misleads most. The regime model's largest factor overweight is the least volatile factor \u2014 true by construction, and silent on return. On the evidence, **Value** leads at +9.28 points against the benchmark and **LowVol** trails at -1.99 points. Following the volatility ladder would overweight the laggard and underweight the leader. Use the quant sleeve to size risk; use the fundamental ranking to choose factors."
+   }
+  ]
+ },
+ "narrative_meta": {
+  "rules": 15,
+  "fell_back": [
+   "cu",
+   "inv",
+   "ord"
+  ],
+  "market_asof": "2026-10-27",
+  "generated_by": "M17 inference engine"
+ },
+ "census": {
+  "total": 765726,
+  "families": 12,
+  "cols": [
+   "Data family",
+   "Series group",
+   "Observations",
+   "As at"
+  ],
+  "rows": [
+   [
+    "Sector and factor indices",
+    "21 sector and factor indices, daily close with PE, PB and yield",
+    "264,415",
+    "2026-10-27"
+   ],
+   [
+    "Regime model",
+    "Engineered daily features",
+    "161,896",
+    "2026-10-27"
+   ],
+   [
+    "Consumer prices",
+    "CPI, earlier base years",
+    "62,249",
+    "\u2014"
+   ],
+   [
+    "Expectations",
+    "Survey of professional forecasters",
+    "52,087",
+    "\u2014"
+   ],
+   [
+    "Equity indices",
+    "BSE daily, via the central bank",
+    "44,916",
+    "\u2014"
+   ],
+   [
+    "Other official series",
+    "corp_fin_ratios_public",
+    "31,450",
+    "\u2014"
+   ],
+   [
+    "Equity indices",
+    "NSE daily, via the central bank",
+    "30,892",
+    "\u2014"
+   ],
+   [
+    "Corporate accounts",
+    "Quarterly results, listed non-government non-financial companies - performance",
+    "27,969",
+    "\u2014"
+   ],
+   [
+    "Rates",
+    "Government bond yields by maturity",
+    "21,069",
+    "\u2014"
+   ],
+   [
+    "Corporate accounts",
+    "Quarterly results - financial ratios",
+    "19,178",
+    "\u2014"
+   ],
+   [
+    "External",
+    "External debt, quarterly",
+    "19,003",
+    "\u2014"
+   ],
+   [
+    "Consumer prices",
+    "CPI divisions and groups, base 2024",
+    "14,028",
+    "2026-09"
+   ],
+   [
+    "Other official series",
+    "iip_usebased_newbase",
+    "3,942",
+    "\u2014"
+   ],
+   [
+    "Rates",
+    "Treasury bill yields by maturity",
+    "3,625",
+    "\u2014"
+   ],
+   [
+    "National accounts",
+    "Quarterly GDP and GVA, all base years",
+    "3,558",
+    "2026-06-30"
+   ],
+   [
+    "Other official series",
+    "iip_sectorwise_newbase",
+    "2,669",
+    "\u2014"
+   ],
+   [
+    "Other official series",
+    "gdp_q_constant_newbase",
+    "797",
+    "\u2014"
+   ],
+   [
+    "Other official series",
+    "gva_q_current_newbase",
+    "792",
+    "\u2014"
+   ],
+   [
+    "Industrial production",
+    "Index of industrial production, base 2022-23",
+    "451",
+    "2026-08"
+   ],
+   [
+    "Capacity and order books",
+    "Order books, inventories and capacity utilisation survey",
+    "292",
+    "Q1 2026-27"
+   ],
+   [
+    "Other official series",
+    "gdp_q_current_newbase",
+    "241",
+    "\u2014"
+   ],
+   [
+    "Other official series",
+    "gva_q_constant_newbase",
+    "207",
+    "\u2014"
+   ]
+  ],
+  "note": "Every figure is a count of non-null observations that entered the analysis, not an estimate. Each family carries its own as-at date because official releases arrive on different calendars."
+ },
+ "stamp": {
+  "reference": "IM-20261028-1720-31AB",
+  "generated_ist": "28 October 2026, 17:20 IST",
+  "generated_utc": "2026-10-28T11:50Z",
+  "content_hash": "31abea1c65",
+  "observations": 765726,
+  "families": 12,
+  "asof": {
+   "Sector and factor indices": "2026-10-27",
+   "Regime model": "2026-10-27",
+   "Consumer prices": "2026-09",
+   "Expectations": "\u2014",
+   "Equity indices": "\u2014",
+   "Other official series": "\u2014",
+   "Corporate accounts": "\u2014",
+   "Rates": "\u2014",
+   "External": "\u2014",
+   "National accounts": "2026-06-30",
+   "Industrial production": "2026-08",
+   "Capacity and order books": "Q1 2026-27"
+  },
+  "note": "The reference identifies this exact report. The content hash is computed from the figures themselves, so two copies with the same hash contain the same numbers."
+ }
 }
